@@ -1,0 +1,12 @@
+.viewItems{
+    min-height: 100vh;
+}
+.search{
+    width: 600px;
+    height: 40px;
+    outline: 0;
+}
+.loc{
+    height: 40px;
+    outline: 0;
+}
