@@ -25,7 +25,7 @@ function Header({insideDashboard}) {
               Requests
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Sent</a></li>
+              <li><Link to={'/sendrequests'} class="dropdown-item" >Sent</Link></li>
               <li><a class="dropdown-item" href="#">Recieved</a></li>
               
             </ul>

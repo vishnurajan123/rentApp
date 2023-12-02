@@ -29,3 +29,33 @@ export const editProductAPI = async(productId,reqBody,reqHeader)=>{
 export const deleteProductAPI=async(productId,reqHeader)=>{
     return await commonAPI("DELETE",`${BASE_URL}/products/remove/${productId}`,{},reqHeader)
 }
+// add review
+export const addReview=async(reqBody,reqHeader)=>{
+    return await commonAPI("POST",`${BASE_URL}/ratings/add`,reqBody,reqHeader)
+}
+// get reviews
+export const getReviews=async()=>{
+    return await commonAPI("GET",`${BASE_URL}/ratings/getratings`,"","")
+}
+// add request
+export const addRequestAPI=async(reqBody,reqHeader)=>{
+    return await commonAPI("POST",`${BASE_URL}/requests/add`,reqBody,reqHeader)
+}
+// get requests
+export const getRequestAPI=async()=>{
+    return await commonAPI("GET",`${BASE_URL}/requests/getrequests`,"","")
+}
+// delete request
+export const deleteRequestAPI=async(requestId,reqHeader)=>{
+    return await commonAPI("DELETE",`${BASE_URL}/requests/remove/${requestId}`,{},reqHeader)
+
+}
+
+// add chat
+export const addChatAPI=async(reqBody,reqHeader)=>{
+    return await commonAPI("POST",`${BASE_URL}/chat/addchat`,reqBody,reqHeader)
+}
+// get chat
+export const getMessageAPI=async()=>{
+    return await commonAPI("GET",`${BASE_URL}/chat/getchat`,"","")
+}
