@@ -4,6 +4,7 @@ import Footer from './Footer'
 import { getRequestAPI } from '../Services/allAPI'
 import SentCard from './SentCard'
 import { addREquestResponseContext, deleteRequestResponseContext } from '../Contexts/ContextShare'
+import RecieveCard from './ReciveCard'
 
 function RecieveRequest() {
     const {addRequestResponse,setAddRequestREsponse}=useContext
@@ -42,7 +43,7 @@ function RecieveRequest() {
 
             requests?.length>0?requests.map((product,index)=>(
   
-    <SentCard product={product} index={index} />
+    <RecieveCard product={product} index={index} />
 
   
 

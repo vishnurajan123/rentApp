@@ -59,3 +59,7 @@ export const addChatAPI=async(reqBody,reqHeader)=>{
 export const getMessageAPI=async()=>{
     return await commonAPI("GET",`${BASE_URL}/chat/getchat`,"","")
 }
+// update user
+export const editUserAPI = async(reqBody,reqHeader)=>{
+    return await commonAPI("PUT",`${BASE_URL}/users/update`,reqBody,reqHeader)
+}

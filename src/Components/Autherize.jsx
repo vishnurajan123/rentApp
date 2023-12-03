@@ -71,73 +71,107 @@ const handleLogin=async (e)=>{
 
 
   return (
-    <div className='auth'> 
-<h3 className='text-black text-center'>Please {isRegister?"Register":"Login"}</h3>
-<Form>
-  {  isRegister&&
-<Form.Group className="mb-3" controlId="formBasicText">
-        <Form.Control value={userdata.username} onChange={(e)=>setUserdata({...userdata,username:e.target.value})} type="text" placeholder="Enter Username" />
-        
-      </Form.Group>}
-    
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="Enter email"
-        onChange={(e)=>setUserdata({...userdata,email:e.target.value})} value={userdata.email}   />
-        
-        
-      </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder="Password" 
-        onChange={(e)=>setUserdata({...userdata,password:e.target.value})} 
-        value={userdata.password} 
-        />
-      </Form.Group>
-      {  isRegister&&
+
 <>
+<div className='home'>
+
   
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+      <div className='auth'> 
+  <h3 className='text-black text-center'>Please {isRegister?"Register":"Login"}</h3>
+  <Form>
+    {  isRegister&&
   <Form.Group className="mb-3" controlId="formBasicText">
-          <Form.Control type="number" placeholder="Phone" 
-          onChange={(e)=>setUserdata({...userdata,phone:e.target.value})} 
-          value={userdata.phone} 
+          <Form.Control value={userdata.username} onChange={(e)=>setUserdata({...userdata,username:e.target.value})} type="text" placeholder="Enter Username" />
+          
+        </Form.Group>}
+      
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control type="email" placeholder="Enter email"
+          onChange={(e)=>setUserdata({...userdata,email:e.target.value})} value={userdata.email}   />
+          
+          
+        </Form.Group>
+  
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Control type="password" placeholder="Password" 
+          onChange={(e)=>setUserdata({...userdata,password:e.target.value})} 
+          value={userdata.password} 
+          />
+        </Form.Group>
+        {  isRegister&&
+  <>
+    
+    <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Control type="number" placeholder="Phone" 
+            onChange={(e)=>setUserdata({...userdata,phone:e.target.value})} 
+            value={userdata.phone} 
+            />
+            
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicText">
+          <Form.Control type="text" placeholder="Place"
+          onChange={(e)=>setUserdata({...userdata,place:e.target.value})} 
+          value={userdata.place} 
           />
           
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicText">
-        <Form.Control type="text" placeholder="Place"
-        onChange={(e)=>setUserdata({...userdata,place:e.target.value})} 
-        value={userdata.place} 
-        />
-        
-      </Form.Group>
-</>
-    
-    }
+  </>
       
-      <p className='text-center'>
+      }
+        
+        <p className='text-center'>
+  
+  {isRegister?
+            <Button onClick={handleRegister} variant="primary" type="submit">
+              Register
+            </Button>:
+             <Button onClick={handleLogin} variant="primary" type="submit">
+             Login
+           </Button>
+            }
+  
+  
+  
+        </p>
+      </Form>
+  {
+  isRegister?
+  <h5 > Already have an accound ? <a onClick={()=>setIsRegister(false)} className='' style={{cursor:"pointer"}} >Login</a> </h5>
+  
+  :
+      <h5 > Don't have an accound ? <a onClick={()=>setIsRegister(true)} className='' style={{cursor:"pointer"}} >Register</a> </h5>
+  
+  }
+      </div>
+  
+  
+</>
 
-{isRegister?
-          <Button onClick={handleRegister} variant="primary" type="submit">
-            Register
-          </Button>:
-           <Button onClick={handleLogin} variant="primary" type="submit">
-           Login
-         </Button>
-          }
-
-
-
-      </p>
-    </Form>
-{
-isRegister?
-<h5 > Already have an accound ? <a onClick={()=>setIsRegister(false)} className='' style={{cursor:"pointer"}} >Login</a> </h5>
-
-:
-    <h5 > Don't have an accound ? <a onClick={()=>setIsRegister(true)} className='' style={{cursor:"pointer"}} >Register</a> </h5>
-
-}
-    </div>
   )
 }
 
