@@ -6,12 +6,11 @@ function Home() {
   
   return (
     <>
-    <p>
-        <div className='home '>
+   
+        <>
         <Autherize/>
 
-        </div>
-    </p>
+        </>
     </>
   )
 }

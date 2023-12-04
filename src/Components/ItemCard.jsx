@@ -40,9 +40,11 @@ const {items,setItems}=useContext(itemDetailResponsesContext)
    
    product&&
 
-    <Link to={`/details/${product?._id}`}>
+    
       <div  className='itemcard'>
+        <Link to={`/details/${product?._id}`}>
           <img width={"100%"} src={`${BASE_URL}/uploads/${product?.productImage}`} alt="" />
+          </Link>
           <h4 className='text-center'>{product?.title}</h4>
           <p className='text-center'>{product?.overview}</p>
           <h4 className='text-center'>RENT : $ {product?.rent}</h4>
@@ -61,7 +63,6 @@ const {items,setItems}=useContext(itemDetailResponsesContext)
   
          }
       </div>
-    </Link>
     
     }
     

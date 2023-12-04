@@ -3,7 +3,14 @@ import './Autherize.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { loginAPI, registerAPI } from '../Services/allAPI';
-import {  useNavigate } from 'react-router-dom'
+import {  Link, useNavigate } from 'react-router-dom'
+import ducati from '../assets/ducati.jpg'
+import flat from '../assets/flat.jpg'
+import ferrari from '../assets/ferrari.jpg'
+
+
+
+
 
 
 
@@ -74,101 +81,196 @@ const handleLogin=async (e)=>{
 
 
 <>
-<div className='home'>
-
+<div className=''>
   
+      <div className='main'>
+
+            <div className='main-text '>
+
+                      <h1 className='cr-head'>
+                  Rent the <br /> <span >Best Products</span> <br /> Around You
+                    </h1>
+                    <a href='#log'><button className='' >Get Started</button></a>
+            </div>
+
+            <div className='main-img'>
+              <img width={"100%"} src={ducati} alt="" />
+            </div>
 
 
-
-</div>
-
+       </div>
 
 
+       <div className='main1'>
+
+      <div className='main-text  '>
+
+            <h1 className='cr-head'>
+          Rent the <br /> <span >Best Products</span> <br /> Around You
+            </h1>
+            <a href='#log'><button className='' >Get Started</button></a>
+            </div>
+
+            <div className='main-img'>
+              <img width={"100%"} src={flat} alt="" />
+            </div>
 
 
+       </div>
+
+       <div className='main2'>
+
+            <div  className='main-text '>
+
+                      <h1 className='cr-head'>
+                  Rent the <br /> <span >Best Products</span> <br /> Around You
+                    </h1>
+                    <a href='#log'><button className='' >Get Started</button></a>
+            </div>
+
+            <div className='main-img'>
+              <img width={"100%"} src={ferrari} alt="" />
+            </div>
 
 
+       </div>
 
 
-
-
-
-
-
-
+       
   
   
   
   
   
-      <div className='auth'> 
-  <h3 className='text-black text-center'>Please {isRegister?"Register":"Login"}</h3>
-  <Form>
-    {  isRegister&&
-  <Form.Group className="mb-3" controlId="formBasicText">
-          <Form.Control value={userdata.username} onChange={(e)=>setUserdata({...userdata,username:e.target.value})} type="text" placeholder="Enter Username" />
-          
-        </Form.Group>}
-      
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Control type="email" placeholder="Enter email"
-          onChange={(e)=>setUserdata({...userdata,email:e.target.value})} value={userdata.email}   />
-          
-          
-        </Form.Group>
   
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Control type="password" placeholder="Password" 
-          onChange={(e)=>setUserdata({...userdata,password:e.target.value})} 
-          value={userdata.password} 
-          />
-        </Form.Group>
-        {  isRegister&&
-  <>
+  
+  
+  
+  
+  
+  
+  
+  
     
-    <Form.Group className="mb-3" controlId="formBasicText">
-            <Form.Control type="number" placeholder="Phone" 
-            onChange={(e)=>setUserdata({...userdata,phone:e.target.value})} 
-            value={userdata.phone} 
-            />
-            
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicText">
-          <Form.Control type="text" placeholder="Place"
-          onChange={(e)=>setUserdata({...userdata,place:e.target.value})} 
-          value={userdata.place} 
-          />
-          
-        </Form.Group>
-  </>
+    
+    
+    <div id='log' className='d-flex justify-content-center align-items-center  pb-5 pt-5 position-sticky bg-white z-3'>
       
-      }
+           <div className='log'>
         
-        <p className='text-center'>
-  
-  {isRegister?
-            <Button onClick={handleRegister} variant="primary" type="submit">
-              Register
-            </Button>:
-             <Button onClick={handleLogin} variant="primary" type="submit">
-             Login
-           </Button>
+            <div  className='auth'> 
+        <h3 className='text-black text-center'> <span>{isRegister?"Register":"Login"} </span>Here</h3>
+        <Form>
+          {  isRegister&&
+        <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Control value={userdata.username} onChange={(e)=>setUserdata({...userdata,username:e.target.value})} type="text" placeholder="Enter Username" />
+                
+              </Form.Group>}
+            
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Control type="email" placeholder="Enter email"
+                onChange={(e)=>setUserdata({...userdata,email:e.target.value})} value={userdata.email}   />
+                
+                
+              </Form.Group>
+        
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Control type="password" placeholder="Password" 
+                onChange={(e)=>setUserdata({...userdata,password:e.target.value})} 
+                value={userdata.password} 
+                />
+              </Form.Group>
+              {  isRegister&&
+        <>
+          
+          <Form.Group className="mb-3" controlId="formBasicText">
+                  <Form.Control type="number" placeholder="Phone" 
+                  onChange={(e)=>setUserdata({...userdata,phone:e.target.value})} 
+                  value={userdata.phone} 
+                  />
+                  
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Control type="text" placeholder="Place"
+                onChange={(e)=>setUserdata({...userdata,place:e.target.value})} 
+                value={userdata.place} 
+                />
+                
+              </Form.Group>
+        </>
+            
             }
+              
+              <p className='text-center'>
+        
+        {isRegister?
+                  <button onClick={handleRegister} variant="primary" type="submit">
+                    Register
+                  </button>:
+                   <button onClick={handleLogin} variant="primary" type="submit">
+                   Login
+                 </button>
+                  }
+        
+        
+        
+              </p>
+            </Form>
+        {
+        isRegister?
+        <h5 className='text-center'> Already have an accound ? <a onClick={()=>setIsRegister(false)} className='' style={{cursor:"pointer",textDecoration:"none"}} ><span>Login</span></a> </h5>
+        
+        :
+            <h5 className='text-center' > Don't have an accound ? <a onClick={()=>setIsRegister(true)} className='' style={{cursor:"pointer",textDecoration:"none"}} ><span>Register</span></a> </h5>
+        
+        }
+            </div>
   
+    
+           </div>
+    </div>
+</div>
   
-  
-        </p>
-      </Form>
-  {
-  isRegister?
-  <h5 > Already have an accound ? <a onClick={()=>setIsRegister(false)} className='' style={{cursor:"pointer"}} >Login</a> </h5>
-  
-  :
-      <h5 > Don't have an accound ? <a onClick={()=>setIsRegister(true)} className='' style={{cursor:"pointer"}} >Register</a> </h5>
-  
-  }
-      </div>
-  
+
+
+<div className='d-flex justify-content-center align-items-center flex-column mt-2 shadow w-100 bg-black'>
+            <div className='footer-content justify-content-evenly flex-wrap w-100 mt-5' style={{ display: 'flex' }}>
+                <div className='website d-flex flex-column' style={{paddingLeft:'50px'}}>
+                    <div style={{ fontWeight: 'bold',color:"white" }}>{' '}Rent-App</div>
+                    <div className='content text-light'>
+                        Designed and built with all the love .</div>
+                    <div className='text-light'>Code licensed Media, docs CC BY 3.0.</div>
+                    <div className='text-light'>Currently v1.0.0.</div>
+                </div>
+                
+                <div className='guides d-flex flex-column'  style={{paddingLeft:'50px'}}>
+                    <div style={{ fontWeight: 'bold',color:"white" }}>Guides</div>
+                    <div className='d-flex flex-column'>
+                        <Link to={'https://react.dev/'} style={{ textDecoration: 'none', color: 'white' }}>React</Link>
+                        <Link to={'https://react-bootstrap.github.io/'} style={{ textDecoration: 'none', color: 'white' }}>React Bootstrap</Link>
+                        <Link to={'https://reactrouter.com/en/main'} style={{ textDecoration: 'none', color: 'white' }}>Routing</Link>
+
+                    </div>
+
+                </div>
+                <div className='contact d-flex flex-column ' style={{paddingLeft:'50px' ,paddingRight:'50px'}}>
+                    <div style={{ fontWeight: 'bold',color:"white" }}>Contact Us</div>
+                    <div className='d-flex'>
+                        <input type="text" className='rounded'/>
+                        <button type="button" class="btn btn-primary rounded ms-2">Search</button>
+                    </div>
+                    <div>
+                        <Link to={'/'} className='mx-2' style={{ textDecoration: 'none', color:'white' }}><i class="fa-brands fa-linkedin" style={{ color: 'black' }}></i></Link>
+                        <Link to={'/'} className='mx-3' style={{ textDecoration: 'none', color: 'white' }}><i class="fa-brands fa-twitter" style={{ textDecoration: 'none', color: 'black' }}></i></Link>
+                        <Link to={'/'} className='mx-3' style={{ textDecoration: 'none', color: 'white' }}><i class="fa-brands fa-facebook-f" style={{ textDecoration: 'none', color: 'black' }}></i></Link>
+                        <Link to={'/'} className='mx-2' style={{ textDecoration: 'none', color: 'white' }}><i class="fa-regular fa-envelope" style={{ textDecoration: 'none', color: 'black' }}></i></Link>
+
+                    </div>
+                </div>
+
+            </div>
+            <p className='mt-5'>Copyright © 2023 Media Player. Built with React.</p>
+        </div>
   
 </>
 
