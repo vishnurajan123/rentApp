@@ -1,5 +1,22 @@
 .profile{
     width: 800px;
     height: 400px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;    padding: 20px;
+}
+.ttt{
+    width: 400px;
+  margin-top: 70px;
+}
+@media (max-width:600px) {
+    
+    .profile{
+        width: 300px;
+        height: 500px;
+
+    }
+    .ttt{
+        width: 250px;
+        margin-top: 20px;
+
+    }
 }

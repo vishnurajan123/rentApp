@@ -37,13 +37,13 @@ function MyProducts() {
 
   return (
     <div>
-        <h1 className='mt-5 text-center'>My Projects</h1>
+<h1 className='exp'> <span style={{color:"orange"}}>|</span> My products</h1>
         <div className='d-flex justify-content-center p-5'>
             
             <Add/>
     
         </div>
-        <div className='d-flex justify-content-evenly'>
+        <div className='d-flex justify-content-evenly flex-wrap'>
           {
             userProducts?.length>0?userProducts.map(product=>(
 <ItemCard insideMyproduct={insideMyproduct} product={product} />

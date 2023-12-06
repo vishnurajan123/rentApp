@@ -31,43 +31,51 @@ const deleteRequest=async(requestId)=>{
   return (
     <>
     
-    <div style={{width:"100%"}}>
 
-    <tr>
-  <th>
-    {index+1}
-  </th>
-  <th>
-<img width={"100px"} src={`${BASE_URL}/uploads/${productDetails?.productImage}`} alt="no image" />  </th>
-  <th>
-    {productDetails?.title}
-  </th>
-  <th>
-    {userDetails?.username}
-  </th>
-  <th>
-    {userDetails?.place}
-  </th>
-  <th>
-    {userDetails?.email}
-  </th>
-  <th>
-    {userDetails?.phone}
-  </th>
-  <th>
-   <div className='d-flex flex-column'>
-        
-        <button onClick={()=>deleteRequest(product._id)} className='btn '>delete</button>
+
+
+
+
+    <div className='d-flex justify-content-evenly flex-wrap crd mb-3'>
+
+<div className='d-flex justify-content-center align-items-center'>
+<img width={"150px"} height={"150px"} src={`${BASE_URL}/uploads/${productDetails?.productImage}`} alt="no image" />  
+
+</div>
+<div className='crd-text'>
+<h5>  Name :  {productDetails?.title}
+</h5>
+<h5> User :
+{userDetails?.username}
+
+</h5>
+<h5> Place :
+{userDetails?.place}
+
+</h5>
+<h5> Place :
+{userDetails?.email}
+
+</h5>
+<h5> Place :
+{userDetails?.phone}
+
+</h5>
+
+<div>
+<button onClick={()=>deleteRequest(product._id)} className='btn '><i style={{color:"red"}} class="fa-solid fa-trash fa-2x"></i></button>
 <Link to={`/chat/${productDetails.userId}`}>
-            <button className='btn '>chat</button>
-    
-</Link>   </div>
+      <button className='btn '><i style={{color:"black"}} class="fa-solid fa-message fa-2x mt-1"></i></button></Link>
+</div>
 
-  </th>
 
-</tr>
-        
-    </div>
+</div>
+
+
+</div>
+
+
+
     
     
     </>

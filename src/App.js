@@ -7,6 +7,7 @@ import ItemDetails from './Components/ItemDetails';
 import SentRequest from './Components/SentRequest';
 import RecieveRequest from './Components/ReciveRequest';
 import Chat from './Components/Chat';
+import Wishlist from './Components/Wishlist';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path='/sendrequests' element={<SentRequest/>}></Route>
       <Route path='/recieverequest' element={<RecieveRequest/>}/>
       <Route path='/chat/:id' element={<Chat/>}/>
+      <Route path='/wishlist' element={<Wishlist/>}/>
 
 
 

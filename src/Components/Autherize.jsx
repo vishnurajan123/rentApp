@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { loginAPI, registerAPI } from '../Services/allAPI';
 import {  Link, useNavigate } from 'react-router-dom'
-import ducati from '../assets/ducati.jpg'
+import ducati from '../assets/carr.jpg'
 import flat from '../assets/flat.jpg'
 import ferrari from '../assets/ferrari.jpg'
 
@@ -101,40 +101,9 @@ const handleLogin=async (e)=>{
        </div>
 
 
-       <div className='main1'>
+      
 
-      <div className='main-text  '>
-
-            <h1 className='cr-head'>
-          Rent the <br /> <span >Best Products</span> <br /> Around You
-            </h1>
-            <a href='#log'><button className='' >Get Started</button></a>
-            </div>
-
-            <div className='main-img'>
-              <img width={"100%"} src={flat} alt="" />
-            </div>
-
-
-       </div>
-
-       <div className='main2'>
-
-            <div  className='main-text '>
-
-                      <h1 className='cr-head'>
-                  Rent the <br /> <span >Best Products</span> <br /> Around You
-                    </h1>
-                    <a href='#log'><button className='' >Get Started</button></a>
-            </div>
-
-            <div className='main-img'>
-              <img width={"100%"} src={ferrari} alt="" />
-            </div>
-
-
-       </div>
-
+      
 
        
   

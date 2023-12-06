@@ -1,12 +1,116 @@
 .viewItems{
     min-height: 100vh;
+    margin-bottom: 100px;
 }
 .search{
-    width: 600px;
-    height: 40px;
+    width: 700px;
+    height: 75px;
     outline: 0;
+    border: 0px solid;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    
 }
-.loc{
-    height: 40px;
+    .loc{
+    height: 75px;
     outline: 0;
+    border: 0px solid;
+    border-left: 0;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    width: 250px;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+}
+
+.srch{
+    width: 120px;
+    height: 35px;
+    background-color: black;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+}
+.view{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.viewtext{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+.viewimg{
+    width: 50%;
+}
+.viewimg img{
+    width: 100%;
+    height: 92vh;
+    object-fit: cover;
+}
+.viewtext h1{
+    font-family: 'Croissant One', serif;
+    color: black;
+    font-size: 3rem;
+
+}
+.viewtext span{
+    color: rgb(255, 153, 0);
+    font-family: 'Croissant One', serif;
+    font-size: 3rem;
+
+
+}
+.exp{
+    text-align: center;
+    font-family: 'Croissant One', serif;
+    color: black;
+    font-size: 2.5rem;
+    margin-top: 100px;
+}
+.items{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+@media (max-width:600px) {
+    .viewtext{
+        width: 100%;
+        height: 50vh;
+        
+    }
+    .viewimg{
+        width: 100%;
+    }
+    .viewimg img{
+        width: 100%;
+        height: 50vh;
+    }
+    .search{
+        height: 40px;
+       
+        
+        width: 150px;
+       
+        
+    }
+        .loc{
+        height: 40px;
+       
+        
+        width: 150px;
+        
+    
+    }
+    
 }

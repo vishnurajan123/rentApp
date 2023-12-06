@@ -9,6 +9,7 @@ function Dashboard() {
   return (
     <>
     <Header/>
+    <h1 className='exp'> <span style={{color:"orange"}}>|</span> My profile</h1>
 
     <Profile/>
     <MyProducts/>

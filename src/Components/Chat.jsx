@@ -4,7 +4,7 @@ import Footer from './Footer'
 import { useParams } from 'react-router-dom'
 import { addChatAPI, getMessageAPI } from '../Services/allAPI'
 import { addChatResponseContext } from '../Contexts/ContextShare'
-
+import './Chat.css'
 
 function Chat() {
     const {addChatResponse,setAddChatResponse}=useContext(addChatResponseContext)
@@ -57,46 +57,53 @@ function Chat() {
     }
 
 useEffect(()=>{
+  var messageBody = document.querySelector('#messageBody');
+  messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+
     getChat()
 },[addChatResponse])
 console.log(chat);
+
+
   return (
     <>
 
     <Header/>
 
 
+<div  className='d-flex justify-content-center align-items-center'>
+  
+      <div id='messageBody' className=' chatbox '>
+  {chat?.length>0?chat.map(text=>(
+  
+  text.senderId==id1?
+  
+  <p className='rec' >
+  <span >{text?.message}</span>
+  
+  </p>:
+  <p className='sen' >
+ <span > {text?.message}</span>
+  
+  </p>
+  
+  
+  
+  
+  )) : <p></p>
+  
+  
+  
+  }
+  
+  
+      </div>
+</div>
 
-    <div className='container w-50'>
-{chat?.length>0?chat.map(text=>(
 
-text.senderId==id1?
-
-<p style={{textAlign:"right"}}>
-{text?.message}
-
-</p>:
-<p style={{textAlign:"left"}}>
-{text?.message}
-
-</p>
-
-
-
-
-)) : <p></p>
-
-
-
-}
-
-
-    </div>
-
-
-    <div className='d-flex justify-content-center align-items-center'>
-        <textarea onChange={(e)=>setMessage(e.target.value)} name="" id="" cols="70" rows="4"></textarea>
-        <button onClick={addChat} className='btn btn-dark'>send</button>
+    <div className='d-flex justify-content-center align-items-center flex-column mb-5'>
+        <textarea className='msg' onChange={(e)=>setMessage(e.target.value)} name="" id="" ></textarea> 
+        <button  onClick={addChat} className=' mt-3 sndbt'>send</button>
     </div>
     <Footer/>
     

@@ -8,8 +8,7 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    position: sticky;
-    top: 0;
+  
 
 }
 .main1{
@@ -30,30 +29,7 @@
     height: 100vh;
     object-fit: cover;
 }
-.main1 img{
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-}
-.main2{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
 
-    z-index: 2;
-    position: sticky;
-    background-color: white;
-
-
-}
-
-.main2 img{
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-}
 
 
 .main-text{
@@ -76,7 +52,7 @@
     border: 0;
 }
 .cr-head{
-    font-size: 5rem;
+    font-size: 4rem;
     margin-bottom: 30px;
     font-family: 'Croissant One', serif;    font-weight: 900;
     text-shadow: 2px 2px #ffffff;
@@ -86,7 +62,7 @@
 
 }
 .cr-head span{
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-family: 'Croissant One', serif;    font-weight: 900;
   color: rgb(255, 132, 0);
 }
@@ -130,8 +106,7 @@
     .main{
         height: 100vh;
         
-        position: sticky;
-        top: 0;
+       
     
     }
     .main-text{

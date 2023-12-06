@@ -91,7 +91,7 @@ console.log(productDetails);
     <>
     
     <button className='btn' variant="dark" onClick={handleShow}>
-    <i class="fa-solid fa-pen-to-square fa-2x"></i></button>
+    <i class="fa-solid fa-pen-to-square fa-2x text-black"></i></button>
 
       <Modal
         show={show}

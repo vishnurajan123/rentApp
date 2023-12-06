@@ -72,9 +72,9 @@ const handleAdd=async(e)=>{
 console.log(productDetails);
   return (
     <>
-      <Button variant="dark" onClick={handleShow}>
+      <button className='rq' onClick={handleShow}>
         Add new product
-      </Button>
+      </button>
 
       <Modal
         show={show}

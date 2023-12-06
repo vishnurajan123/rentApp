@@ -98,9 +98,9 @@ console.log(user);
 
   return (
    <div className='d-flex justify-content-center align-items-center p-5 rounded-5'>
-        <div className='profile d-flex justify-content-evenly'>
+        <div className='profile d-flex justify-content-evenly flex-wrap'>
 
-            <div className='d-flex justify-content-center align-items-center'>
+            <div className='d-flex justify-content-center align-items-center '>
                 
             <label htmlFor="profile">
                         {/* upload picture */}
@@ -108,8 +108,8 @@ console.log(user);
                         <input onChange={(e)=>setUserprofile({...userprofile,profile:e.target.files[0]})}  id='profile' type="file"  style={{display:"none"}}/>
 
                         {existingImage!==""?
-                        <img style={{width:"150px",height:"150px"}} src={preview?preview: `${BASE_URL}/uploads/${existingImage}` }alt="" />:
-                        <img style={{width:"150px",height:"150px"}} src={preview?preview: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png" }alt="" />
+                        <img style={{width:"180px",height:"180px"}} src={preview?preview: `${BASE_URL}/uploads/${existingImage}` }alt="" />:
+                        <img style={{width:"180px",height:"180px"}} src={preview?preview: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png" }alt="" />
         }
         
                     </label>
@@ -119,7 +119,7 @@ console.log(user);
 
 
 
-            <div className='d-flex justify-content-center align-items-center w-50' >
+            <div className='d-flex justify-content-center align-items-center ttt' >
                 <div className='w-100'>
                 <input 
                          value={userprofile.username} 
@@ -127,18 +127,21 @@ console.log(user);
 
                     <input 
                          value={userprofile.email} 
-                         onChange={(e)=>setUserprofile({...userprofile,email:e.target.value})}  className='form-control ' type="email" placeholder='Enter username' />
+                         onChange={(e)=>setUserprofile({...userprofile,email:e.target.value})}  className='form-control mt-3' type="email" placeholder='Enter username' />
 
                      <input 
                          value={userprofile.place} 
-                         onChange={(e)=>setUserprofile({...userprofile,place:e.target.value})}  className='form-control ' type="text" placeholder='Enter username' />
+                         onChange={(e)=>setUserprofile({...userprofile,place:e.target.value})}  className='form-control mt-3' type="text" placeholder='Enter username' />
 
                      <input 
                          value={userprofile.phone} 
-                         onChange={(e)=>setUserprofile({...userprofile,phone:e.target.value})}  className='form-control ' type="text" placeholder='Enter username' />
+                         onChange={(e)=>setUserprofile({...userprofile,phone:e.target.value})}  className='form-control mt-3' type="text" placeholder='Enter username' />
                     
                     <div>
-                        <button onClick={handleProfileUpdate} className='btn btn-primary'>Edit</button>
+<p className='text-center'>
+                            <button onClick={handleProfileUpdate} className='rq mt-3'>Edit Details</button>
+    
+</p>                        
 
                     </div>
 

@@ -10,6 +10,7 @@ import Footer from './Footer';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import { addREquestResponseContext } from '../Contexts/ContextShare';
+import AddWishlist from './AddWishlist';
 
 function ItemDetails() {
     const {id}=useParams()
@@ -139,46 +140,57 @@ function ItemDetails() {
     <Header/>
         
         <div className='d-flex justify-content-center align-items-center flex-column p-5'>
+
+          <h1>{allproducts?.title}, {allproducts?.place}</h1>
     <img className='itemimg' src={`${BASE_URL}/uploads/${allproducts?.productImage}`} alt="image" />
-    <table>
-    
-    
-        <tr>
-            <th>Name</th>
-            <td>{allproducts?.title}</td>
-        </tr>
-        <tr>
-            <th>Category:</th>
-            <td>{allproducts?.category}</td>
-        </tr>
-        <tr>
-            <th>Overview:</th>
-            <td>{allproducts?.overview}</td>
-        </tr>
-        <tr>
-            <th>Rent:</th>
-            <td>{allproducts?.rent}</td>
-        </tr>
-        <tr>
-            <th>Place:</th>
-            <td>{allproducts?.place}</td>
-        </tr>
-        <tr>
-            <th>Contact:</th>
-            <td>{allproducts?.contact}</td>
-        </tr>
-        <tr>
-            <th>Location link:</th>
-            <td>{allproducts?.loc}</td>
-        </tr>
-    </table>
-    <button onClick={addRequest} className='btn btn-dark mt-4'>Request</button>
+    <h2 className='mt-5'>Product Details</h2>
+
+   <div className='d-flex justify-content-center align-items-center '>
+
+      
+      <table >
+      
+      
+          <tr>
+              <th><h3>Name</h3></th>
+              <td><h3>{allproducts?.title}</h3></td>
+          </tr>
+          <tr>
+              <th><h3>Category</h3></th>
+              <td><h3>{allproducts?.category}</h3></td>
+          </tr>
+          <tr>
+              <th><h3>Overview</h3></th>
+              <td><h3>{allproducts?.overview}</h3></td>
+          </tr>
+          <tr>
+              <th><h3>Rent</h3></th>
+              <td><h3>{allproducts?.rent}</h3></td>
+          </tr>
+          <tr>
+              <th><h3>Place</h3></th>
+              <td><h3>{allproducts?.place}</h3></td>
+          </tr>
+          <tr>
+              <th><h3>Contact</h3></th>
+              <td><h3>{allproducts?.contact}</h3></td>
+          </tr>
+          <tr>
+              <th><h3>Location link</h3></th>
+              <td><h3><a href={allproducts?.loc} target='_blank'></a>Click here</h3></td>
+          </tr>
+      </table>
+   </div>
+    <button onClick={addRequest} className='rq mt-4 mb-3'>Request</button>
+    <AddWishlist product={allproducts} />
     
     
         </div>
 
 
         <div className='d-flex justify-content-center align-items-center flex-column p-5'>
+        <h1 className='exp'> <span style={{color:"orange"}}>|</span> Reviews</h1>
+        <h3 className='mt-4 mb-3'>Drop your review</h3>
       <Rating
         name="simple-controlled"
         value={value}
@@ -186,25 +198,25 @@ function ItemDetails() {
           setRatingDetails({...ratingDeails,rating:newValue})
         }}
       />
-                  <textarea onChange={e=>setRatingDetails({...ratingDeails,review:e.target.value})} name="" id="" cols="60" rows="5"></textarea>
-                  <button onClick={handleAdd} className='btn btn-dark'>Post</button>
+                  <textarea className='mt-3' onChange={e=>setRatingDetails({...ratingDeails,review:e.target.value})} name="" id="" ></textarea>
+                  <button onClick={handleAdd} className='rq mt-3'>Post</button>
 
 
         </div>
-        <div>
+        <div className='container mb-5'>
 
-            <h1>Reviews</h1>
             {
-                reviews?.length>0?reviews.map(review=>(
+                reviews?.length>0?reviews.map((review,index)=>(
              
               <div>
+                <p>{index+1}</p>
                     <Rating
         name="simple-controlled"
         value={review.rating}
         readOnly
       />
       <p>{review.review}</p>
-      <h6>{review.username}</h6>
+      <h6> user: {review.username}</h6>
 
               </div>
 

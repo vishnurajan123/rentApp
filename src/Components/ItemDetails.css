@@ -1,4 +1,63 @@
 .itemimg{
     width: 600px;
     height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    object-fit: cover;
+
+    
 }
+table{
+    width: 595px;
+    text-align: center;
+    margin-top: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+}
+td,th{
+    align-content: center;
+    padding: 10px;
+    font-family: 'Sedgwick Ave Display', cursive;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+}
+
+ h3{
+    font-family: 'Gabarito', sans-serif;
+
+}
+
+
+.rq{
+    width: 170px;
+    height: 35px;
+    background-color: black;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+}
+.rq:hover{
+    background-color: rgb(255, 132, 0);
+}
+textarea {
+    width: 600px;
+    height: 100px;
+  }
+
+
+  @media (max-width:600px) {
+    textarea {
+        width: 300px;
+        height: 80px;
+      }
+
+      .itemimg{
+        width: 300px;
+        height: 300px;
+    }
+    table{
+        width: 300px;
+    }
+    h3{
+        font-size: 1rem;
+    }
+  }

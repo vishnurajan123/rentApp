@@ -35,8 +35,7 @@ function RecieveRequest() {
 
     <>
 <Header/>
-    <div className='d-flex justify-content-center align-items-center container flex-column'>
-    <table style={{width:"100%"}}>
+    <div className='d-flex justify-content-evenly container flex-wrap'>
 
 
         {
@@ -49,7 +48,6 @@ function RecieveRequest() {
 
             )) : <p>nothing to display</p>
         }
-</table>
 
     
 

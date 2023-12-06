@@ -5,6 +5,7 @@ import './ViewItems.css'
 import ItemCard from '../Components/ItemCard'
 import { allProductsAPI } from '../Services/allAPI'
 import { addProductResponseContext, editProductResponseContext } from '../Contexts/ContextShare'
+import ferrari from '../assets/ducati.jpg'
 
 function ViewItems() {
     const {editProductResponse,setEditproductResponse}=useContext(editProductResponseContext)
@@ -36,18 +37,34 @@ console.log(searchLoc);
     <>
 <Header/>
 
-<div className='viewItems'>
+<div className='viewItems '>
+
+
+<div className='view'>
+        <div className='viewtext'>
+        <h1>
+            Looking to <span>save more</span> <br /> On your rental products ?
+        </h1>
+
+        </div>
+        <div className='viewimg'>
+
+        <img src={ferrari} alt="" />
+        </div>
+
+</div>
+
+<h1 className='exp'> <span style={{color:"orange"}}>|</span> Explore the Products</h1>
     <div className='p-5'>
         
         <div className='d-flex justify-content-center align-items-center '>
-            <input value={searchKey} onChange={(e)=>setSearchKey(e.target.value)} className='search' type="text"  />
-            <input value={searchLoc} onChange={(e)=>setSearchLoc(e.target.value)} className='loc' type="text"  />
+            <input value={searchKey} placeholder='Serch by name ' onChange={(e)=>setSearchKey(e.target.value)} className='search' type="text"  />
+            <input value={searchLoc} placeholder='Location' onChange={(e)=>setSearchLoc(e.target.value)} className='loc' type="text"  />
         </div>
-       <p className='text-center mt-3'> <button className='btn btn-dark'>Search</button></p>
     </div>
 
 
-    <div className='d-flex justify-content-evenly mt-5 pt-5 flex-wrap '>
+    <div className='items container'>
 
 {
  allproducts?.length>0?allproducts.map(product=>(
