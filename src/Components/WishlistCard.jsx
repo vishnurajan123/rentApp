@@ -28,7 +28,7 @@ function WishlistCard({product}) {
     }
   return (
     <div>
- <div  className='itemcard mt-4'>
+ <div  className='itemcard mt-4 mb-4'>
         
         <img width={"100%"} src={`${BASE_URL}/uploads/${wishlist?.productImage}`} alt="" />
         <div className='d-flex justify-content-center align-items-center flex-column'>

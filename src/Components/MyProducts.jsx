@@ -33,7 +33,6 @@ function MyProducts() {
   getUserProducts()
  },[addProductResponse,editProductResponse])
 
- console.log(userProducts);
 
   return (
     <div>
@@ -47,8 +46,7 @@ function MyProducts() {
           {
             userProducts?.length>0?userProducts.map(product=>(
 <ItemCard insideMyproduct={insideMyproduct} product={product} />
-            )): <p>Nothing to Display</p>
-
+            )): <img src="https://static.thenounproject.com/png/4532229-200.png" alt="" />
           }
 
             

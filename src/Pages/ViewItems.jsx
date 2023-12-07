@@ -30,8 +30,6 @@ useEffect(()=>{
     getAllProducts()
 },[searchKey,searchLoc,addProductResponse,editProductResponse])
 
-console.log(searchKey);
-console.log(searchLoc);
 
   return (
     <>
@@ -71,7 +69,7 @@ console.log(searchLoc);
 
 <ItemCard product={product} />
 
- )): <p>Nothing to display</p>
+ )): <img src="https://static.thenounproject.com/png/4532229-200.png" alt="" />
 
 }
 

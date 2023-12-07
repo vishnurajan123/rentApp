@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Autherize.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -7,6 +7,9 @@ import {  Link, useNavigate } from 'react-router-dom'
 import ducati from '../assets/carr.jpg'
 import flat from '../assets/flat.jpg'
 import ferrari from '../assets/ferrari.jpg'
+import { tokenAutherizationContext } from '../Contexts/TokenAuth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -15,6 +18,7 @@ import ferrari from '../assets/ferrari.jpg'
 
 
 function Autherize() {
+  const {isAutherized,setIsAutherized}=useContext(tokenAutherizationContext)
     const [isRegister,setIsRegister]=useState(false)
     const [userdata,setUserdata]=useState({
       username:"",
@@ -30,12 +34,12 @@ function Autherize() {
     e.preventDefault()
     const {username,email,password,place,phone}=userdata
     if(!username || !email || !password || !place || !phone){
-      alert("Please fill the form completely")
+      toast.info("Please fill the form completely")
     }
     else{
       const result=await registerAPI(userdata)
       if(result.status===200){
-        alert(`${username} has registered successfully`)
+        toast.success(`${username} has registered successfully`)
         setUserdata({
           username:"",
       email:"",
@@ -46,7 +50,7 @@ function Autherize() {
         setIsRegister(false)
       }
       else{
-        alert(result.response.data)
+        toast.error(result.response.data)
         console.log(result);
       }
     }
@@ -55,7 +59,7 @@ const handleLogin=async (e)=>{
   e.preventDefault()
   const {email,password}=userdata
   if(!email || !password){
-    alert("Please fill the form completely")
+    toast.info("Please fill the form completely")
   }
   else{
     const result=await loginAPI(userdata)
@@ -66,10 +70,11 @@ const handleLogin=async (e)=>{
         email:"",
         password:""
       })
+      setIsAutherized(true)
       naviagate('/landing')
     }
     else{
-      alert(result.response.data)
+      toast.error(result.response.data)
       console.log(result);
     }
   }
@@ -205,7 +210,7 @@ const handleLogin=async (e)=>{
 <div className='d-flex justify-content-center align-items-center flex-column mt-2 shadow w-100 bg-black'>
             <div className='footer-content justify-content-evenly flex-wrap w-100 mt-5' style={{ display: 'flex' }}>
                 <div className='website d-flex flex-column' style={{paddingLeft:'50px'}}>
-                    <div style={{ fontWeight: 'bold',color:"white" }}>{' '}Rent-App</div>
+                    <div style={{ fontWeight: 'bold',color:"orange" }}>{' '}Rent-App</div>
                     <div className='content text-light'>
                         Designed and built with all the love .</div>
                     <div className='text-light'>Code licensed Media, docs CC BY 3.0.</div>
@@ -213,7 +218,7 @@ const handleLogin=async (e)=>{
                 </div>
                 
                 <div className='guides d-flex flex-column'  style={{paddingLeft:'50px'}}>
-                    <div style={{ fontWeight: 'bold',color:"white" }}>Guides</div>
+                    <div style={{ fontWeight: 'bold',color:"orange" }}>Guides</div>
                     <div className='d-flex flex-column'>
                         <Link to={'https://react.dev/'} style={{ textDecoration: 'none', color: 'white' }}>React</Link>
                         <Link to={'https://react-bootstrap.github.io/'} style={{ textDecoration: 'none', color: 'white' }}>React Bootstrap</Link>
@@ -223,10 +228,10 @@ const handleLogin=async (e)=>{
 
                 </div>
                 <div className='contact d-flex flex-column ' style={{paddingLeft:'50px' ,paddingRight:'50px'}}>
-                    <div style={{ fontWeight: 'bold',color:"white" }}>Contact Us</div>
+                    <div style={{ fontWeight: 'bold',color:"orange" }}>Contact Us</div>
                     <div className='d-flex'>
                         <input type="text" className='rounded'/>
-                        <button type="button" class="btn btn-primary rounded ms-2">Search</button>
+                        <button type="button" class="btn btn-orange rounded ms-2">Subscribe</button>
                     </div>
                     <div>
                         <Link to={'/'} className='mx-2' style={{ textDecoration: 'none', color:'white' }}><i class="fa-brands fa-linkedin" style={{ color: 'black' }}></i></Link>
@@ -238,9 +243,10 @@ const handleLogin=async (e)=>{
                 </div>
 
             </div>
-            <p className='mt-5'>Copyright © 2023 Media Player. Built with React.</p>
+            <p className='mt-5 text-light'>Copyright © 2023 Media Player. Built with React.</p>
         </div>
-  
+        < ToastContainer position='top-right' theme='colored'/>
+
 </>
 
   )

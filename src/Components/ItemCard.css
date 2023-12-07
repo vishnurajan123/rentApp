@@ -6,6 +6,7 @@
     border-radius: 10px;
     transition: .2s ease-out;
     padding: 13px;
+    overflow-x: hidden;
 
 }
 .itemcard img{

@@ -1,6 +1,7 @@
 .viewItems{
     min-height: 100vh;
     margin-bottom: 100px;
+    margin-top: 60px;
 }
 .search{
     width: 700px;

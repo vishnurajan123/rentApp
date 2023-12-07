@@ -1,7 +1,11 @@
 .profile{
     width: 800px;
     height: 400px;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;    padding: 20px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;    
+    padding: 20px;
+    overflow-x: hidden;
+    background-color: white;
+
 }
 .ttt{
     width: 400px;

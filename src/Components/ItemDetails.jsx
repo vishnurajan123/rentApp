@@ -11,6 +11,8 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import { addREquestResponseContext } from '../Contexts/ContextShare';
 import AddWishlist from './AddWishlist';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ItemDetails() {
     const {id}=useParams()
@@ -47,7 +49,7 @@ function ItemDetails() {
     const user=JSON.parse(sessionStorage.getItem("existingUser"))
 
     if(!rating || !review){
-        alert("Please fill the form completely")
+        toast.info("Please fill the form completely")
     }
     else{
         const reqBody=new FormData()
@@ -68,7 +70,6 @@ function ItemDetails() {
 
               const result=await addReview(reqBody,reqHeader)
               if(result.status===200){
-                alert("Review posted successfully")
                 setAdded(true)
               }else{
                 console.log(result);
@@ -105,7 +106,7 @@ function ItemDetails() {
             }
           const result=await addRequestAPI(reqBody,reqHeader)
           if(result.status==200){
-            alert("Request sent successfully")
+            toast.success("Request sent successfully")
             setAddRequestREsponse(result.data)
           }
           else{
@@ -139,9 +140,9 @@ function ItemDetails() {
     <>
     <Header/>
         
-        <div className='d-flex justify-content-center align-items-center flex-column p-5'>
+        <div className='d-flex justify-content-center align-items-center flex-column p-5 mt-5'>
 
-          <h1>{allproducts?.title}, {allproducts?.place}</h1>
+          <h1 style={{fontWeight:"bold"}} >{allproducts?.title}, {allproducts?.place}</h1>
     <img className='itemimg' src={`${BASE_URL}/uploads/${allproducts?.productImage}`} alt="image" />
     <h2 className='mt-5'>Product Details</h2>
 
@@ -152,32 +153,32 @@ function ItemDetails() {
       
       
           <tr>
-              <th><h3>Name</h3></th>
-              <td><h3>{allproducts?.title}</h3></td>
+              <th><h5>Name</h5></th>
+              <td><h5>{allproducts?.title}</h5></td>
           </tr>
           <tr>
-              <th><h3>Category</h3></th>
-              <td><h3>{allproducts?.category}</h3></td>
+              <th><h5>Category</h5></th>
+              <td><h5>{allproducts?.category}</h5></td>
           </tr>
           <tr>
-              <th><h3>Overview</h3></th>
-              <td><h3>{allproducts?.overview}</h3></td>
+              <th><h5>Overview</h5></th>
+              <td><h5>{allproducts?.overview}</h5></td>
           </tr>
           <tr>
-              <th><h3>Rent</h3></th>
-              <td><h3>{allproducts?.rent}</h3></td>
+              <th><h5>Rent</h5></th>
+              <td><h5>{allproducts?.rent}</h5></td>
           </tr>
           <tr>
-              <th><h3>Place</h3></th>
-              <td><h3>{allproducts?.place}</h3></td>
+              <th><h5>Place</h5></th>
+              <td><h5>{allproducts?.place}</h5></td>
           </tr>
           <tr>
-              <th><h3>Contact</h3></th>
-              <td><h3>{allproducts?.contact}</h3></td>
+              <th><h5>Contact</h5></th>
+              <td><h5>{allproducts?.contact}</h5></td>
           </tr>
           <tr>
-              <th><h3>Location link</h3></th>
-              <td><h3><a href={allproducts?.loc} target='_blank'></a>Click here</h3></td>
+              <th><h5>Location link</h5></th>
+              <td><a className='text-primary' href={allproducts?.loc} target='_blank'><h5>Click here</h5></a></td>
           </tr>
       </table>
    </div>
@@ -226,6 +227,8 @@ function ItemDetails() {
 
         </div>
         <Footer/>
+        < ToastContainer position='top-right' theme='colored'/>
+
     </>
   )
 }

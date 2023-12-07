@@ -3,6 +3,9 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;    padding: 20px;
     border-radius: 10px;
     margin-top: 30px;
+    overflow-x: hidden;
+    background-color: white;
+
 }
 .crd img{
     border-radius: 10px;

@@ -11,6 +11,7 @@ table{
     text-align: center;
     margin-top: 30px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    background-color: white;
 
 }
 td,th{
@@ -41,6 +42,10 @@ td,th{
 textarea {
     width: 600px;
     height: 100px;
+    border: 0;
+    outline: 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
   }
 
 

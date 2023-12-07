@@ -4,6 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import { BASE_URL } from '../Services/baseURL';
 import { editProductAPI } from '../Services/allAPI';
 import { editProductResponseContext } from '../Contexts/ContextShare';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Editproduct({product}) {
     const {editProductResponse,setEditproductResponse}=useContext(editProductResponseContext)
@@ -26,7 +28,7 @@ function Editproduct({product}) {
         const {id,title,category,overview,rent,place,contact,loc,productImage}=productDetails
 
         if(!title || !category || !overview || !rent || !place || !contact || !loc){
-            alert("Please fill the form completeley...")
+            toast.info("Please fill the form completeley...")
         }
         else{
             const reqBody=new FormData()
@@ -49,7 +51,7 @@ function Editproduct({product}) {
                 //   api call
                 const result=await editProductAPI(id,reqBody,reqHeader)
                 if(result.status===200){
-                    alert("Product updated successfully...")
+                    toast.info("Product updated successfully...")
                     handleClose()
                     // pass response to my products
                     setEditproductResponse(result.data)
@@ -69,7 +71,7 @@ function Editproduct({product}) {
                 
                 const result=await editProductAPI(id,reqBody,reqHeader)
                 if(result.status===200){
-                    alert("Product updated successfully...")
+                    toast.info("Product updated successfully...")
                     handleClose()
                     // pass response to my products
                     setEditproductResponse(result.data)
@@ -86,7 +88,6 @@ function Editproduct({product}) {
         }
     }
 
-console.log(productDetails);
   return (
     <>
     
@@ -149,10 +150,11 @@ console.log(productDetails);
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={handleUpdate}  variant="dark">Upload</Button>
+          <Button onClick={handleUpdate}  variant="dark">Save</Button>
         </Modal.Footer>
       </Modal>
-    
+      < ToastContainer position='top-right' theme='colored'/>
+
     </>
   )
 }

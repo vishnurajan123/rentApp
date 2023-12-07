@@ -28,13 +28,12 @@ function SentRequest() {
     useEffect(()=>{
         getRequests()
       },[addRequestResponse,deleteRequestResponse])
-      console.log(requests);
 
   return (
 
     <>
 <Header/>
-    <div className='d-flex justify-content-evenly flex-wrap container p-5'>
+    <div className='d-flex justify-content-evenly flex-wrap container mt-5 p-5'>
 
 
         {
@@ -45,7 +44,7 @@ function SentRequest() {
 
   
 
-            )) : <p>nothing to display</p>
+            )) : <img src="https://static.thenounproject.com/png/4532229-200.png" alt="" />
         }
 
     

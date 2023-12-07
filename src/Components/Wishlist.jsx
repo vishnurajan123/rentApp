@@ -35,7 +35,7 @@ useEffect(()=>{
   return (
     <>
     <Header/>
-    <h1 className='exp'> <span style={{color:"orange"}}>|</span> Wishlist</h1>
+    <h1 className='exp '> <span style={{color:"orange"}}>|</span> Wishlist</h1>
 
     <div className='d-flex justify-content-evenly  pt-5 flex-wrap conatiner'>
 
@@ -47,7 +47,7 @@ useEffect(()=>{
 
                 <WishlistCard product={product} />
 
-            )): <p>No items</p>
+            )): <img src="https://static.thenounproject.com/png/4532229-200.png" alt="" />
         }
 
 

@@ -35,6 +35,7 @@ function Chat() {
               const result=await addChatAPI(reqBody,reqHeader)
               if(result.status==200){
                 setAddChatResponse(result.data)
+                setMessage("")
               }
               else{
                 console.log(result);
@@ -62,7 +63,6 @@ useEffect(()=>{
 
     getChat()
 },[addChatResponse])
-console.log(chat);
 
 
   return (
@@ -71,7 +71,7 @@ console.log(chat);
     <Header/>
 
 
-<div  className='d-flex justify-content-center align-items-center'>
+<div  className='d-flex justify-content-center align-items-center mt-4 pt-5'>
   
       <div id='messageBody' className=' chatbox '>
   {chat?.length>0?chat.map(text=>(
@@ -102,7 +102,7 @@ console.log(chat);
 
 
     <div className='d-flex justify-content-center align-items-center flex-column mb-5'>
-        <textarea className='msg' onChange={(e)=>setMessage(e.target.value)} name="" id="" ></textarea> 
+        <textarea value={message} className='msg' onChange={(e)=>setMessage(e.target.value)} name="" id="" ></textarea> 
         <button  onClick={addChat} className=' mt-3 sndbt'>send</button>
     </div>
     <Footer/>

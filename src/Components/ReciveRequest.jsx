@@ -2,14 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import { getRequestAPI } from '../Services/allAPI'
-import SentCard from './SentCard'
-import { addREquestResponseContext, deleteRequestResponseContext } from '../Contexts/ContextShare'
+import { addREquestResponseContext } from '../Contexts/ContextShare'
 import RecieveCard from './ReciveCard'
 
 function RecieveRequest() {
-    const {addRequestResponse,setAddRequestREsponse}=useContext
-    (addREquestResponseContext)
-    const {deleteRequestResponse,setDeleteRequestResponse}=useContext(deleteRequestResponseContext)
+    const {addRequestResponse,setAddRequestREsponse}=useContext(addREquestResponseContext)
     const [requests,setRequests]=useState([])
 
     const getRequests=async()=>{
@@ -28,14 +25,14 @@ function RecieveRequest() {
 
     useEffect(()=>{
         getRequests()
-      },[addRequestResponse,deleteRequestResponse])
-      console.log(requests);
+      },[addRequestResponse])
 
   return (
 
     <>
 <Header/>
-    <div className='d-flex justify-content-evenly container flex-wrap'>
+
+    <div className='d-flex justify-content-evenly container flex-wrap mt-5 pt-5 mb-5'>
 
 
         {
@@ -46,7 +43,7 @@ function RecieveRequest() {
 
   
 
-            )) : <p>nothing to display</p>
+            )) : <img src="https://static.thenounproject.com/png/4532229-200.png" alt="" />
         }
 
     

@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import { BASE_URL } from '../Services/baseURL'
 import { deleteRequestAPI } from '../Services/allAPI'
-import { deleteRequestResponseContext } from '../Contexts/ContextShare'
 import { Link } from 'react-router-dom'
 import './SentCard.css'
+import { addREquestResponseContext } from '../Contexts/ContextShare'
 
 function SentCard({product,index}) {
-const {deleteRequestResponse,setDeleteRequestResponse}=useContext(deleteRequestResponseContext)
+  const {addRequestResponse,setAddRequestREsponse}=useContext(addREquestResponseContext)
+
     const productDetails=JSON.parse(product.product)
 const deleteRequest=async(requestId)=>{
     const token=sessionStorage.getItem("token")
@@ -16,9 +17,8 @@ const deleteRequest=async(requestId)=>{
     }
     const result=await deleteRequestAPI(requestId,reqHeader)
     if(result.status===200){
-        alert("item deleted successfully")
         // reload page
-        setDeleteRequestResponse(result.data)
+        setAddRequestREsponse(result.data)
     }
     else{
         console.log(result);

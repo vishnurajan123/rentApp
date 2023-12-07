@@ -21,7 +21,6 @@ const {items,setItems}=useContext(itemDetailResponsesContext)
     }
     const result=await deleteProductAPI(productId,reqHeader)
     if(result.status===200){
-      alert("item deleted successfully")
       // page reload 
       setAddproductResponse(result.data)
     }
@@ -62,7 +61,7 @@ const {items,setItems}=useContext(itemDetailResponsesContext)
            {
               insideMyproduct?
     
-              <div className=''>
+              <div className='d-flex '>
                 <Editproduct product={product} />
                 <button onClick={()=>deleteProduct(product._id)} className='btn'><i style={{color:"orangered"}} class="fa-solid fa-trash fa-2x"></i></button>
               </div>

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import './Profile.css'
 import { BASE_URL } from '../Services/baseURL'
 import { editUserAPI } from '../Services/allAPI'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Profile() {
 
     const [userprofile,setUserprofile]=useState({
@@ -58,11 +61,10 @@ console.log(user);
         // api call
         const result=await editUserAPI(reqBody,reqHeader)
         if(result.status==200){
-            alert("Profile updated successfully")
+            toast.success("Profile updated successfully")
             sessionStorage.setItem("existingUser",JSON.stringify(result.data))
         }
         else{
-            alert("oombi")
             console.log(result);
             console.log(result.response.data);
 
@@ -77,11 +79,10 @@ console.log(user);
             // api call
         const result=await editUserAPI(reqBody,reqHeader)
         if(result.status==200){
-            alert("Profile updated successfully")
+            toast.success("Profile updated successfully")
             sessionStorage.setItem("existingUser",JSON.stringify(result.data))
         }
         else{
-            alert("oombi")
             console.log(result);
             console.log(result.response.data);
 
@@ -160,6 +161,8 @@ console.log(user);
     
     
         </div>
+        < ToastContainer position='top-right' theme='colored'/>
+
    </div>
   )
 }

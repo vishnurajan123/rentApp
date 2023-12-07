@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { addProductAPI } from '../Services/allAPI';
 import { addProductResponseContext } from '../Contexts/ContextShare';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Add() {
   const {addProductResponse,setAddproductResponse}=useContext(addProductResponseContext)
@@ -35,7 +37,7 @@ const handleAdd=async(e)=>{
     e.preventDefault()
     const {title,category,overview,rent,place,contact,loc,productImage}=productDetails
     if(!title || !category || !overview || !rent || !place || !contact || !loc || !productImage){
-        alert("Please fill the form completely")
+        toast.info("Please fill the form completely")
     }
     else{
         const reqBody=new FormData()
@@ -56,7 +58,6 @@ const handleAdd=async(e)=>{
 
            const result=await addProductAPI(reqBody,reqHeader)
            if(result.status===200){
-            console.log(result.data);
 
             handleClose()
             setAddproductResponse(result.data)
@@ -65,7 +66,7 @@ const handleAdd=async(e)=>{
            }
            else{
                 console.log(result);
-                alert(result.response.data)
+                toast.error(result.response.data.response)
            }
     }
 }}
@@ -132,9 +133,12 @@ console.log(productDetails);
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={handleAdd} variant="dark">Upload</Button>
+          <Button onClick={handleAdd} variant="dark">Add</Button>
         </Modal.Footer>
       </Modal>
+
+      < ToastContainer position='top-right' theme='colored'/>
+
     </>
   );
 }

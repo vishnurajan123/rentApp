@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { addWishlistAPI } from '../Services/allAPI'
 import { addWishlistResponseContext } from '../Contexts/ContextShare'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddWishlist({product}) {
     const {addWishlistResponse,setAddwishlistResponse}=useContext(addWishlistResponseContext)
@@ -18,7 +20,7 @@ function AddWishlist({product}) {
 
               const result=await addWishlistAPI(reqBody,reqHeader)
               if(result.status===200){
-                alert("wishlist added successfully")
+                toast.success("wishlist added successfully")
                 setAddwishlistResponse(result.data)
               }else{
                 console.log(result);
@@ -30,12 +32,15 @@ function AddWishlist({product}) {
     }
 
 
-    console.log(product);
   return (
-    <div>
-
-        <button onClick={handleAddWishlist} className='rq'>Add to wishlist</button>
-    </div>
+    <>
+      <div>
+  
+          <button onClick={handleAddWishlist} className='rq'>Add to wishlist</button>
+      </div>
+              < ToastContainer position='top-right' theme='colored'/>
+  
+    </>
   )
 }
 
