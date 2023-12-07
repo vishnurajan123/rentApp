@@ -128,7 +128,7 @@ const handleLogin=async (e)=>{
     
     
     
-    <div id='log' className='d-flex justify-content-center align-items-center  pb-5 pt-5 position-sticky bg-white z-3'>
+    <div id='' className='d-flex justify-content-center align-items-center   bg-white '>
       
            <div className='log'>
         
@@ -231,7 +231,7 @@ const handleLogin=async (e)=>{
                     <div style={{ fontWeight: 'bold',color:"orange" }}>Contact Us</div>
                     <div className='d-flex'>
                         <input type="text" className='rounded'/>
-                        <button type="button" class="btn btn-orange rounded ms-2">Subscribe</button>
+                        <button type="button" class="btn btn-warning rounded ms-2">Subscribe</button>
                     </div>
                     <div>
                         <Link to={'/'} className='mx-2' style={{ textDecoration: 'none', color:'white' }}><i class="fa-brands fa-linkedin" style={{ color: 'black' }}></i></Link>
