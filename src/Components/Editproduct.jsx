@@ -15,7 +15,15 @@ function Editproduct({product}) {
         id:product._id,title:product.title,category:product.category,overview:product.overview,rent:product.rent,place:product.place,contact:product.contact,loc:product.loc,productImage:""
     })
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false);
+        setProductDetails({
+            id:product._id,title:product.title,category:product.category,overview:product.overview,rent:product.rent,place:product.place,contact:product.contact,loc:product.loc,productImage:""
+            
+        })
+        setPreview("")
+    
+    }
     const handleShow = () => setShow(true);
 
     useEffect(()=>{

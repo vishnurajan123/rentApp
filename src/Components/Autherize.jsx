@@ -128,7 +128,7 @@ const handleLogin=async (e)=>{
     
     
     
-    <div id='' className='d-flex justify-content-center align-items-center   bg-white '>
+    <div id='log' className='d-flex justify-content-center align-items-center   bg-white '>
       
            <div className='log'>
         
@@ -243,7 +243,7 @@ const handleLogin=async (e)=>{
                 </div>
 
             </div>
-            <p className='mt-5 text-light'>Copyright © 2023 Media Player. Built with React.</p>
+            <p className='mt-5 text-light'>Copyright © 2023 Rent Blitz. Built with React.</p>
         </div>
         < ToastContainer position='top-right' theme='colored'/>
 

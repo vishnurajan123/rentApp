@@ -7,18 +7,18 @@
     
 }
 table{
-    width: 595px;
+    width: 795px;
     text-align: center;
     margin-top: 30px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-    background-color: white;
+   border: 1px solid;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
 
 }
 td,th{
     align-content: center;
     padding: 10px;
     font-family: 'Sedgwick Ave Display', cursive;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 
 }
 

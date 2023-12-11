@@ -20,7 +20,7 @@ function AddWishlist({product}) {
 
               const result=await addWishlistAPI(reqBody,reqHeader)
               if(result.status===200){
-                toast.success("wishlist added successfully")
+                toast.success("item added to wishlist")
                 setAddwishlistResponse(result.data)
               }else{
                 console.log(result);

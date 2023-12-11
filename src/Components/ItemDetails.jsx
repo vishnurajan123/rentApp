@@ -19,11 +19,11 @@ function ItemDetails() {
     const {addRequestResponse,setAddRequestREsponse}=useContext(addREquestResponseContext)
     const [value, setValue] = React.useState();
     const [added,setAdded]=useState(false)
-
+    var avgrating=0
     const [ratingDeails,setRatingDetails]=useState({
         productId:id,rating:"",review:"",username:""
       })
-      const [reviews,setReviews]=useState()
+      const [reviews,setReviews]=useState([])
 
     const [allproducts,setAllProducts]=useState({})
     const searchKey=""
@@ -71,6 +71,7 @@ function ItemDetails() {
               const result=await addReview(reqBody,reqHeader)
               if(result.status===200){
                 setAdded(true)
+                
               }else{
                 console.log(result);
                 console.log(result.response.data);
@@ -135,16 +136,40 @@ function ItemDetails() {
     getAllReviews()
   },[added])
 
+ if(reviews.length>0){
+  avgrating =reviews.map(item=>item.rating).reduce((item1,item2)=>item1+item2)/reviews.length
+}  
+
   return (
 
     <>
     <Header/>
         
-        <div className='d-flex justify-content-center align-items-center flex-column p-5 mt-5'>
+        <div className='d-flex justify-content-center align-items-center flex-column p-5 mt-5 '>
+<div className='d-flex justify-content-evenly flex-wrap w-100 mt-5 pt-5 mb-5 pb-3'>
+  
+      <img className='itemimg' src={`${BASE_URL}/uploads/${allproducts?.productImage}`} alt="image" />
+     <div className='d-flex justify-content-center  flex-column' >
+        
+        <h1 style={{fontWeight:"bold",color:"black"}} >{allproducts?.title}</h1>
+        <h4>Location : {allproducts.place}</h4>
+        <h3>Rent : <span className='text-danger'>{allproducts.rent}</span></h3>
 
-          <h1 style={{fontWeight:"bold"}} >{allproducts?.title}, {allproducts?.place}</h1>
-    <img className='itemimg' src={`${BASE_URL}/uploads/${allproducts?.productImage}`} alt="image" />
-    <h2 className='mt-5'>Product Details</h2>
+        <Rating
+        name="simple-controlled"
+        value={avgrating}
+        readOnly
+      />
+        <button onClick={addRequest} className='rq mt-4 mb-3'>Request</button>
+    <AddWishlist product={allproducts} />
+     </div>
+
+  
+</div>
+
+
+
+    <h2 className='mt-5 pt-5 exp'><span style={{color:"orange"}}>|</span>Product Details</h2>
 
    <div className='d-flex justify-content-center align-items-center '>
 
@@ -182,8 +207,7 @@ function ItemDetails() {
           </tr>
       </table>
    </div>
-    <button onClick={addRequest} className='rq mt-4 mb-3'>Request</button>
-    <AddWishlist product={allproducts} />
+    
     
     
         </div>
