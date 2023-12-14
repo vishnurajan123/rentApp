@@ -70,7 +70,13 @@ function ItemDetails() {
 
               const result=await addReview(reqBody,reqHeader)
               if(result.status===200){
+                setRatingDetails({
+                  productId:id,rating:"",review:"",username:""
+
+                })
+                setValue(0)
                 setAdded(true)
+      
                 
               }else{
                 console.log(result);
@@ -139,6 +145,11 @@ function ItemDetails() {
  if(reviews.length>0){
   avgrating =reviews.map(item=>item.rating).reduce((item1,item2)=>item1+item2)/reviews.length
 }  
+var admin=false
+const user=JSON.parse(sessionStorage.getItem("existingUser"))
+    if(user.role=="admin"){
+      admin=true
+    }
 
   return (
 
@@ -160,8 +171,14 @@ function ItemDetails() {
         value={avgrating}
         readOnly
       />
-        <button onClick={addRequest} className='rq mt-4 mb-3'>Request</button>
-    <AddWishlist product={allproducts} />
+        {!admin&&
+        <>
+          
+            <button onClick={addRequest} className='rq mt-4 mb-3'>Request</button>
+      <AddWishlist product={allproducts} />
+      
+        </>
+    }
      </div>
 
   
@@ -211,10 +228,10 @@ function ItemDetails() {
     
     
         </div>
-
-
-        <div className='d-flex justify-content-center align-items-center flex-column p-5'>
         <h1 className='exp'> <span style={{color:"orange"}}>|</span> Reviews</h1>
+
+{!admin&&
+        <div className='d-flex justify-content-center align-items-center flex-column p-5'>
         <h3 className='mt-4 mb-3'>Drop your review</h3>
       <Rating
         name="simple-controlled"
@@ -223,11 +240,11 @@ function ItemDetails() {
           setRatingDetails({...ratingDeails,rating:newValue})
         }}
       />
-                  <textarea className='mt-3' onChange={e=>setRatingDetails({...ratingDeails,review:e.target.value})} name="" id="" ></textarea>
+                  <textarea value={ratingDeails.review} className='mt-3' onChange={e=>setRatingDetails({...ratingDeails,review:e.target.value})} name="" id="" ></textarea>
                   <button onClick={handleAdd} className='rq mt-3'>Post</button>
 
 
-        </div>
+        </div>}
         <div className='container mb-5'>
 
             {
@@ -245,7 +262,7 @@ function ItemDetails() {
 
               </div>
 
-                )): <p>Nothing to display</p>
+                )): <p className='text-danger'>*No reviews added</p>
             }
 
 

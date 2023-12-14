@@ -9,8 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 function Add() {
   const {addProductResponse,setAddproductResponse}=useContext(addProductResponseContext)
   const [token,setToken]=useState("")
+  
 
   const [show, setShow] = useState(false);
+  const user=JSON.parse(sessionStorage.getItem("existingUser"))
+  
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -49,6 +52,9 @@ const handleAdd=async(e)=>{
         reqBody.append("contact",contact)
         reqBody.append("loc",loc)
         reqBody.append("productImage",productImage)
+        reqBody.append("userId",user._id)    
+
+        
 
         if(token){
             const reqHeader={
@@ -73,7 +79,7 @@ const handleAdd=async(e)=>{
 console.log(productDetails);
   return (
     <>
-      <button className='rq' onClick={handleShow}>
+      <button className='rq mt-3' onClick={handleShow}>
         Add new product
       </button>
 

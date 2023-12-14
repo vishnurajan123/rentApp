@@ -17,7 +17,7 @@ const [searchLoc,setSearchLoc]=useState("")
 const getAllProducts=async()=>{
     const result=await allProductsAPI(searchKey,searchLoc)
     if(result.status===200){
-        setAllProducts(result.data)
+        setAllProducts(result.data.filter(item=>item.status=="approved"))
     }
     else{
         console.log(result);

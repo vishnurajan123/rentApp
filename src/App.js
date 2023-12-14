@@ -10,6 +10,9 @@ import Chat from './Components/Chat';
 import Wishlist from './Components/Wishlist';
 import { tokenAutherizationContext } from './Contexts/TokenAuth';
 import { useContext } from 'react';
+import ViewUploadRequests from './Pages/ViewUploadRequests';
+import ViewComplaints from './Pages/ViewComplaints';
+import Pending from './Pages/Pending';
 
 function App() {
   const {isAutherized,setIsAutherized}=useContext(tokenAutherizationContext)
@@ -25,6 +28,12 @@ function App() {
       <Route path='/recieverequest' element={ isAutherized? <RecieveRequest/>:<Home/> }/>
       <Route path='/chat/:id' element={isAutherized? <Chat/>:<Home/> }/>
       <Route path='/wishlist' element={ isAutherized? <Wishlist/> : <Home/>}/>
+      <Route path='/viewuploadrequest' element={ isAutherized? <ViewUploadRequests/> : <Home/>}/>
+      <Route path='/viewcomplaints' element={ isAutherized? <ViewComplaints/> : <Home/>}/>
+      <Route path='/pending' element={ isAutherized? <Pending/> : <Home/>}/>
+
+
+
       <Route path='/*' element ={<Navigate to={'/'}/>}/>
 
 

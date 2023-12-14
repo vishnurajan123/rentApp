@@ -12,13 +12,13 @@ function Editproduct({product}) {
     const [show, setShow] = useState(false);
     const [preview,setPreview]=useState("")
     const [productDetails,setProductDetails]=useState({
-        id:product._id,title:product.title,category:product.category,overview:product.overview,rent:product.rent,place:product.place,contact:product.contact,loc:product.loc,productImage:""
+        id:product._id,title:product.title,category:product.category,overview:product.overview,rent:product.rent,place:product.place,contact:product.contact,loc:product.loc,productImage:"",userId:product.userId,status:product.status
     })
 
     const handleClose = () => {
         setShow(false);
         setProductDetails({
-            id:product._id,title:product.title,category:product.category,overview:product.overview,rent:product.rent,place:product.place,contact:product.contact,loc:product.loc,productImage:""
+            id:product._id,title:product.title,category:product.category,overview:product.overview,rent:product.rent,place:product.place,contact:product.contact,loc:product.loc,productImage:"",userId:product.userId,status:product.status
             
         })
         setPreview("")
@@ -33,7 +33,7 @@ function Editproduct({product}) {
     },[productDetails.productImage])
 
     const handleUpdate= async()=>{
-        const {id,title,category,overview,rent,place,contact,loc,productImage}=productDetails
+        const {id,title,category,overview,rent,place,contact,loc,productImage,userId,status}=productDetails
 
         if(!title || !category || !overview || !rent || !place || !contact || !loc){
             toast.info("Please fill the form completeley...")
@@ -48,6 +48,11 @@ function Editproduct({product}) {
             reqBody.append("contact",contact)
             reqBody.append("loc",loc)    
             preview?reqBody.append("productImage",productImage):reqBody.append("productImage",product.productImage)
+            reqBody.append("userId",userId)
+            reqBody.append("status",status)
+
+
+
 
             const token=sessionStorage.getItem("token")
             if(preview){

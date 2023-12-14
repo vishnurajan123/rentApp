@@ -1,0 +1,39 @@
+.uploadcard{
+    width: 700px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.uploadcard img{
+    width: 300px;
+    height: 280px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.uploadcard.h5{
+    font-size: 1rem;
+}
+.ppp{
+    font-size: 1.2rem;
+}
+@media (max-width:600px) {
+    .uploadcard{
+        width: 300px;
+       
+    }
+    .uploadcard img{
+        width: 300px;
+        height: 280px;
+        padding: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+}

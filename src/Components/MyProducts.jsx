@@ -4,6 +4,7 @@ import ItemCard from './ItemCard'
 import Add from './Add'
 import { userProductsAPI } from '../Services/allAPI'
 import { addProductResponseContext, editProductResponseContext } from '../Contexts/ContextShare'
+import { Link } from 'react-router-dom'
 
 function MyProducts() {
   const {editProductResponse,setEditproductResponse}=useContext(editProductResponseContext)
@@ -20,7 +21,7 @@ function MyProducts() {
       }
       const result=await userProductsAPI(reqHeader)
       if(result.status===200){
-        setUserproducts(result.data)
+        setUserproducts(result.data.filter(item=>item.status=="approved"))
       }
       else{
         console.log(result);
@@ -36,10 +37,14 @@ function MyProducts() {
 
   return (
     <div>
-<h1 className='exp'> <span style={{color:"orange"}}>|</span> My products</h1>
-        <div className='d-flex justify-content-center p-5'>
+<h1 className='exp'> <span style={{color:"orange"}}>|</span> My Uploads</h1>
+        <div className='d-flex justify-content-center p-5 flex-wrap'>
             
             <Add/>
+            <Link to={'/pending'}>
+              
+              <button className='rq ms-lg-3 mt-3'>Pending requests</button>
+            </Link>
     
         </div>
         <div className='d-flex justify-content-evenly flex-wrap'>

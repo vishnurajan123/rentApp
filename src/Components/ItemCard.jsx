@@ -35,6 +35,12 @@ const {items,setItems}=useContext(itemDetailResponsesContext)
     
   })
 
+  var admin=false
+const user=JSON.parse(sessionStorage.getItem("existingUser"))
+    if(user.role=="admin"){
+      admin=true
+    }
+
   return (
     <>
    {
@@ -58,17 +64,25 @@ const {items,setItems}=useContext(itemDetailResponsesContext)
   
            
            </h5>
-           {
-              insideMyproduct?
-    
-              <div className='d-flex '>
-                <Editproduct product={product} />
-                <button onClick={()=>deleteProduct(product._id)} className='btn'><i style={{color:"orangered"}} class="fa-solid fa-trash fa-2x"></i></button>
-              </div>
-
-              : <Link to={`/details/${product?._id}`}> <button className='dt'>View details</button></Link>
-    
-           }
+           <div className='d-flex'>
+             
+             {
+                insideMyproduct?
+      
+                <div className='d-flex '>
+                  <Editproduct product={product} />
+                  <button onClick={()=>deleteProduct(product._id)} className='btn'><i style={{color:"orangered"}} class="fa-solid fa-trash fa-2x"></i></button>
+                </div>
+  
+                : <Link to={`/details/${product?._id}`}> <button className='dt'>View details</button></Link>
+      
+             }
+             {
+              admin&&
+              <button onClick={()=>deleteProduct(product._id)} className='btn'><i style={{color:"orangered"}} class="fa-solid fa-trash fa-2x"></i></button>
+  
+             }
+           </div>
           </div>
       </div>
     
